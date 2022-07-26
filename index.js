@@ -8,7 +8,7 @@ const app = express();
 const cors = require("cors");
 app.use(express.json());
 app.use(cors());
-
+let port = process.env.PORT || 8000;
 app.get("/",(req,res)=>{
     res.send("Hello World");
 })
@@ -74,6 +74,8 @@ app.post("/contact", async (req, res) => {
 
 
 
-app.listen(8000);
+app.listen(port,()=>{
+    console.log("listening at port ",port);
+});
 
 
