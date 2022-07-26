@@ -6,5 +6,8 @@
     "mongoose": "^6.4.7",
     "node": "^18.5.0",
     "nodemon": "^2.0.19"
+  },
+  "scripts": {
+    "start": "node index.js"
   }
 }
