@@ -9,6 +9,9 @@ const cors = require("cors");
 app.use(express.json());
 app.use(cors());
 
+app.get("/",(req,res)=>{
+    res.send("Hello World");
+})
 
 app.post("/register", async (req, res) => {
     let user = new users(req.body);
