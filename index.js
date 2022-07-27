@@ -1,7 +1,7 @@
 const express = require("express");
+require('dotenv').config()
 require("./database/config");
 const Jwt = require("jsonwebtoken");
-const jwtKey="iamkey"
 const users = require("./database/user")
 const contacts = require("./database/contact")
 const app = express();
@@ -9,6 +9,8 @@ const cors = require("cors");
 app.use(express.json());
 app.use(cors());
 let port = process.env.PORT || 8000;
+
+
 app.get("/",(req,res)=>{
     res.send("Hello World");
 })
@@ -20,7 +22,7 @@ app.post("/register", async (req, res) => {
     delete result.password;
     Jwt.sign({
         result
-    }, jwtKey, (err, token) => {
+    }, process.env.JWTKEY, (err, token) => {
         if (err) {
             res.send({
                 result: "Something Went Wrong"
